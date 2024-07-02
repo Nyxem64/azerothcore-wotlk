@@ -11444,12 +11444,13 @@ bool Player::IsVisibleGloballyFor(Player const* u) const
     if (IsVisible())
         return true;
 
+    //#changed
     // GMs are visible for higher gms (or players are visible for gms)
-    if (!AccountMgr::IsPlayerAccount(u->GetSession()->GetSecurity()))
-        return GetSession()->GetSecurity() <= u->GetSession()->GetSecurity();
+    //if (!AccountMgr::IsPlayerAccount(u->GetSession()->GetSecurity()))
+    //    return GetSession()->GetSecurity() <= u->GetSession()->GetSecurity();
 
-    if (!sScriptMgr->NotVisibleGloballyFor(const_cast<Player*>(this), u))
-        return true;
+    //if (!sScriptMgr->NotVisibleGloballyFor(const_cast<Player*>(this), u))
+    //    return true;
 
     // non faction visibility non-breakable for non-GMs
     return false;
